@@ -92,6 +92,8 @@ class LibraryScopedNameFinder {
             type is TypeParameterType) {
       // ignore: deprecated_member_use
       return type.getDisplayString(withNullability: true);
+    } else if (type.alias?.element is TypeAliasElement) {
+      typeElement = type.alias!.element;
     }
 
     return _getNamedElementTypeName(typeElement!, type);
